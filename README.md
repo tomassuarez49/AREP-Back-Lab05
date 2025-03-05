@@ -41,38 +41,11 @@ El sistema sigue una **arquitectura de tres capas**:
 | `PropertyRepository` | Interfaz que extiende JPA Repository para operaciones en la base de datos. |
 
 ### **Diagrama de Clases**
-```
-+----------------------+
-|      Property       |
-+----------------------+
-| - Long id           |
-| - String address    |
-| - double price      |
-| - int size          |
-| - String description|
-+----------------------+
-        |
-        |
-+----------------------+
-| PropertyService    |
-+----------------------+
-| - PropertyRepository |
-| + getAllProperties() |
-| + addProperty()      |
-| + updateProperty()   |
-| + deleteProperty()   |
-+----------------------+
-        |
-        |
-+----------------------+
-| PropertyController |
-+----------------------+
-| + getAllProperties() |
-| + createProperty()   |
-| + updateProperty()   |
-| + deleteProperty()   |
-+----------------------+
-```
+
+
+![image](https://github.com/user-attachments/assets/828fc71d-1039-4e33-ba79-05c7c5d1e157)
+
+
 
 ## **Instrucciones de Despliegue**
 ### **1️⃣ Despliegue del Backend (Spring Boot en Docker en AWS EC2)**
@@ -119,29 +92,14 @@ docker run -d -p 8080:8080 --name backend -e DB_URL="jdbc:mysql://tu-servidor-my
    ```
 
 ## **Capturas de Pantalla**
-### **1️⃣ Vista de Lista de Propiedades**
-![Lista de Propiedades](screenshot_property_list.png)
 
-### **2️⃣ Agregando una Nueva Propiedad**
-![Agregar Propiedad](screenshot_add_property.png)
 
-### **3️⃣ Editando una Propiedad**
-![Editar Propiedad](screenshot_edit_property.png)
-
-### **4️⃣ Eliminando una Propiedad**
-![Eliminar Propiedad](screenshot_delete_property.png)
+https://github.com/user-attachments/assets/b2e2a9b5-3f46-4b17-a300-a2109be1a5db
 
 ---
 ## **📌 Notas Adicionales**
 - El backend usa **configuración CORS** para permitir solicitudes desde el frontend.
 - Todas las credenciales sensibles se almacenan como **variables de entorno**.
-- Se recomienda el uso de **AWS Secrets Manager** para mejorar la seguridad.
 
 
-
-
-https://github.com/user-attachments/assets/b2e2a9b5-3f46-4b17-a300-a2109be1a5db
-
-
-
-📢 **Desarrollado y mantenido por Tu Nombre**
+📢 **Desarrollado y mantenido por Tomas Suarez**
