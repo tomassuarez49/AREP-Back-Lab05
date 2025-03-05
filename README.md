@@ -46,6 +46,39 @@ El sistema sigue una **arquitectura de tres capas**:
 ![image](https://github.com/user-attachments/assets/828fc71d-1039-4e33-ba79-05c7c5d1e157)
 
 
+### **Diagrama de despliegue**
+
+```mermaid
+graph TD
+    User((Usuario)) -->|HTTP Requests| S3[AWS S3 - Frontend]
+    S3 -->|Fetch Data| EC2Backend[AWS EC2 - Backend Spring Boot Docker]
+    EC2Backend -->|JDBC Connection| MySQLDB[AWS EC2 - MySQL Database]
+
+    subgraph "AWS Cloud"
+        S3
+        EC2Backend
+        MySQLDB
+    end
+```
+
+
+## **Diagrama de componentes**
+
+
+```mermaid
+graph TD
+    Frontend["Frontend (HTML, CSS, JS)"] -->|API Requests| Backend["Backend (Spring Boot)"]
+    Backend -->|JPA/Hibernate| Database["MySQL Database"]
+    
+    subgraph Backend Components
+        Controller["PropertyController (Maneja solicitudes HTTP)"] -->|Llama a| Service["PropertyService (Lógica de negocio)"]
+        Service -->|Usa| Repository["PropertyRepository (Acceso a BD)"]
+        Repository -->|Interfaz con| Database
+    end
+
+```
+
+
 
 ## **Instrucciones de Despliegue**
 ### **1️⃣ Despliegue del Backend (Spring Boot en Docker en AWS EC2)**
