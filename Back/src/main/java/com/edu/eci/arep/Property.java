@@ -10,7 +10,7 @@ public class Property {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) 
-    private Long propertyId;
+    private Long id;
     private String address;
     private double price;
     private int size;
@@ -28,12 +28,12 @@ public class Property {
     @Override
     public String toString() {
         return String.format(
-                "Property[propertyId=%d, address='%s', description='%s', size=%d, price=%.2f]",
-                propertyId, address, description, size, price);
+                "Property[id=%d, address='%s', description='%s', size=%d, price=%.2f]",
+                id, address, description, size, price);
     }
 
-    public Long getPropertyId() {
-        return propertyId;
+    public Long getId() {
+        return id;
     }
 
     public String getAddress() {
